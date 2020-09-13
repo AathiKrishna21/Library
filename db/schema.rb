@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_13_123730) do
+ActiveRecord::Schema.define(version: 2020_09_13_175429) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,9 +36,24 @@ ActiveRecord::Schema.define(version: 2020_09_13_123730) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "book_catagories", force: :cascade do |t|
+    t.bigint "book_id", null: false
+    t.bigint "catagory_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["book_id"], name: "index_book_catagories_on_book_id"
+    t.index ["catagory_id"], name: "index_book_catagories_on_catagory_id"
+  end
+
   create_table "books", force: :cascade do |t|
     t.string "title", null: false
     t.string "author", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "catagories", force: :cascade do |t|
+    t.string "title", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -77,4 +92,6 @@ ActiveRecord::Schema.define(version: 2020_09_13_123730) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "book_catagories", "books"
+  add_foreign_key "book_catagories", "catagories"
 end
