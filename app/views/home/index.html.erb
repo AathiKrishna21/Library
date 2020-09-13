@@ -1,0 +1,13 @@
+ <div class="container py-3">
+  <%= image_tag('jum.png', {:style => "width:100%; padding-top: 0; margin: 0;"}) %>
+</div>
+<div class="container">
+	<h1 class="px-auto py-2">-----Books-----</h1>
+	<p>Find me in app/views/home/index.html.erb</p>
+	<% if user_signed_in? %>
+		<%= current_user.email %>
+	<% end %>
+
+</div>
+
+
