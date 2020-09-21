@@ -7,7 +7,12 @@
 	<% if user_signed_in? %>
 		<%= current_user.email %>
 	<% end %>
+	<% @catagories.first(2).each do |catagory| %>
+		<h2><%=  catagory.title %></h2>
+		
+	<% end %>
 
 </div>
+
 
 

@@ -1,0 +1,15 @@
+<% @catagories.each do |catagory| %>
+	<a class="dropdown-item" href="#">
+		<%= catagory.title %>
+	</a>
+<% end %>
+<% unless @b_catagories.nil? %>
+                <% @b_catagories.each do |catagory| %>
+                  <a class="dropdown-item" href="#">
+                    <%= catagory.title %>
+                  </a>
+                <% end %>
+            <% end %>
+            <!--
+
+		catagory_books_path(catagory)

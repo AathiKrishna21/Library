@@ -16,5 +16,16 @@ Rails.application.routes.draw do
   end
   root 'home#index', as: 'home'
   get 'home/index'
+
+
+
+  resources :catagory, only: [:index] do
+    resources :books, only: [:index] do
+      member do
+        get :read
+      end
+      resources :commands
+    end
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

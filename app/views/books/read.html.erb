@@ -1,0 +1,9 @@
+<link rel="stylesheet" type="text/css" href="read.css">
+<h5 >
+	<%= @books.title %>
+</h5>
+<div class="container" >
+	<embed
+    src="<%= polymorphic_url(@books.pdf) %>#toolbar=0&navpanes=0&scrollbar=0"
+    width="100%" height="750" />
+</div>
