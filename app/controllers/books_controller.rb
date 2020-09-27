@@ -5,10 +5,12 @@ class BooksController < ApplicationController
 		@catagory = Catagory.find(params[:catagory_id])
   		@books = @catagory.book.order(:title)
 	end
-
+    before_action :authenticate_user!
 	def read
-		@books = Book.find(params[:id])
-		#@book = @books.order(:title)
+
+		@catagory = Catagory.find(params[:catagory_id])
+		@books = @catagory.book.find(params[:id])
+		
 	end
 
 	#def create

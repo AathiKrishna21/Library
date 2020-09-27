@@ -36,10 +36,11 @@
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <% unless @b_catagories.nil? %>
                   <% @b_catagories.each do |catagory| %>
-                    
+                    <div class="dropdown-item btn">
                     <%= link_to catagory_books_path(catagory)  do %>
                       <%= catagory.title  %>
-                    <% end %>   
+                    <% end %> 
+                    </div>  
                   <% end %>
             <% end %>
           </div>
