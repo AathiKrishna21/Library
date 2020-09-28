@@ -16,16 +16,13 @@
 	</div>
 <% end %>
 
-
-
-<h1>Add Comments</h1>
 <%= form_for([@books, @books.comments.build], url: catagory_book_comments_path(@catagory.id,@books.id), html: { method: "POST" }) do |f| %>
 	<p>
-		<%= f.label :username %><br>
-		<%= f.text_field(:username, {:class => "form-control"}) %>
+		<%= f.hidden_field :username, value: current_user.email.split("@")[0] %>
+		
 	</p>
 	<p>
-		<%= f.label :body %><br>
+		<br>
 		<%= f.text_field(:body, {:class => "form-control"}) %>
 	</p>
 	<p>
